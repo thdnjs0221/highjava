@@ -51,21 +51,34 @@ public class LprodMybatisTest {
 		 * 
 		 * System.out.print("lprod_nm 입력>> "); String lprodNm = scan.next();
 		 * 
-		 * //1) 입력한 데이터를 VO에 저장한다 LprodVO lvo= new LprodVO(); lvo.setLprod_id(lprodId);
-		 * lvo.setLprod_gu(lprodGu); lvo.setLprod_nm(lprodNm);
+		 * //1) 입력한 데이터를 VO에 저장한다
+		 *  LprodVO lvo= new LprodVO(); 
+		 *  lvo.setLprod_id(lprodId);
+		 * lvo.setLprod_gu(lprodGu); 
+		 * lvo.setLprod_nm(lprodNm);
 		 * 
 		 * 
-		 * //작성된 sql문을 호출해서 실행하여 결과를 받아오는 객체 변수 선언 SqlSession session =null; try { //2)
-		 * SqlSessionFactory객체를 이용하여 SqlSession객체를 구한다 //==> openSession()메서드를 사용한다 //
-		 * 형식) SqlSessionFactory객체.openSession(논리값) // '논리값'이 true이면 AutoCommit이 활성화 되고
-		 * // '논리값'이 생략되거나 false이면 AutoCommit이 비활성화 된다 session=
-		 * sqlSessionFactory.openSession(); //논리값 생략한거 AutoCommit이 비활성화.
+		 * //작성된 sql문을 호출해서 실행하여 결과를 받아오는 객체 변수 선언
+		 *  SqlSession session =null; 
+		 *  try { 
+		 *  
+		 *  //2)SqlSessionFactory객체를 이용하여 SqlSession객체를 구한다 //==> openSession()메서드를 사용한다 
+		 *  //형식) SqlSessionFactory객체.openSession(논리값) 
+		 *  // '논리값'이 true이면 AutoCommit이 활성화 되고
+		 * // '논리값'이 생략되거나 false이면 AutoCommit이 비활성화 된다
 		 * 
-		 * //3) sqlSession객체를 이용하여 처리할 SQL문을 호출하여 실행한다. // 형식) sqlSession객체.insert
-		 * ("namespace속성값.실행할 id속성값", 파라미터클래스) //==> 반환값 : 작업에 성공한 레코드 수 int insertCnt=
-		 * session.insert("lprod.insertLprod", lvo); if(insertCnt>0) {
-		 * System.out.println("insert 작업 성공"); // 작업이 성공하면 AutoCommit이 비활성화된 상태이기 때문에 직접
-		 * commit을 실행해야 한다 session.commit(); }else {
+		 *  session=sqlSessionFactory.openSession(); //논리값 생략한거 AutoCommit이 비활성화.
+		 * 
+		 * //3) sqlSession객체를 이용하여 처리할 SQL문을 호출하여 실행한다. 
+		 * // 형식) sqlSession객체.insert("namespace속성값.실행할 id속성값", 파라미터클래스) 
+		 * //==> 반환값 : 작업에 성공한 레코드 수 int insertCnt=
+		 * session.insert("lprod.insertLprod", lvo);
+		 * 
+		 *  if(insertCnt>0) {
+		 * System.out.println("insert 작업 성공"); 
+		 * // 작업이 성공하면 AutoCommit이 비활성화된 상태이기 때문에 직접
+		 * commit을 실행해야 한다 session.commit();
+		 *  }else {
 		 * System.out.println("insert 작업 실패 "); }
 		 * 
 		 * } catch (Exception e) { session.rollback(); e.printStackTrace();
