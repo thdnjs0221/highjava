@@ -2,6 +2,8 @@ package kr.or.ddit.json;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,7 +48,20 @@ public class JsonController extends HttpServlet {
 			SampleVO samVo= new SampleVO(10,"홍길동");
 			jsonData = gson.toJson(samVo);
 			break;
+		case "list":
+			ArrayList<SampleVO> list = new ArrayList<SampleVO>();
+			list.add(new SampleVO(100,"강감찬"));
+			list.add(new SampleVO(200,"이순신"));
+			list.add(new SampleVO(300,"성춘향"));
+			list.add(new SampleVO(400,"이몽룡"));
+			jsonData = gson.toJson(list);
 			
+		case "map":
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("name", "이순신");
+			map.put("tel", "010-124-5678");
+			map.put("addr", "대전시 중구 오류동");
+			jsonData = gson.toJson(map);
 			
 			
 		}
